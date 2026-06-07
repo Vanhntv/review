@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn ghế - CineBook</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">Cine<span>Book</span></a>
+            <ul class="menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="index.html#now-showing">Phim đang chiếu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">Đăng nhập</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container booking-layout">
+
+        <div class="booking-main">
+            <div class="booking-steps">
+                <div class="step done">1. Chọn phim</div>
+                <div class="step done">2. Chọn suất</div>
+                <div class="step active">3. Chọn ghế</div>
+                <div class="step">4. Thanh toán</div>
+            </div>
+
+            <h2 style="margin-bottom: 8px;">Dune: Part Two</h2>
+            <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 0.9rem;">
+                CGV Vincom Đồng Khởi • Hôm nay, 07/06 • Suất 19:30 • 2D Lồng tiếng
+            </p>
+
+            <div class="screen-area">
+                <div class="screen"></div>
+                <p class="screen-label">Màn hình</p>
+            </div>
+
+            <div class="seat-legend">
+                <div class="legend-item">
+                    <div class="legend-box available"></div>
+                    <span>Trống (85.000đ)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box vip"></div>
+                    <span>VIP (120.000đ)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box selected"></div>
+                    <span>Đang chọn</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-box booked"></div>
+                    <span>Đã đặt</span>
+                </div>
+            </div>
+
+            <div class="seat-map" id="seatMap"></div>
+
+            <div class="form-group">
+                <label for="customerName">Họ và tên</label>
+                <input type="text" id="customerName" placeholder="Nguyễn Văn A">
+            </div>
+            <div class="form-group">
+                <label for="customerPhone">Số điện thoại</label>
+                <input type="tel" id="customerPhone" placeholder="0901 234 567">
+            </div>
+        </div>
+
+        <aside class="booking-sidebar">
+            <h3>Thông tin đặt vé</h3>
+            <div class="booking-info">
+                <div class="info-row">
+                    <span class="label">Phim</span>
+                    <span class="value">Dune: Part Two</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Rạp</span>
+                    <span class="value">CGV Đồng Khởi</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Suất chiếu</span>
+                    <span class="value">19:30 — 07/06</span>
+                </div>
+                <div class="info-row">
+                    <span class="label">Số ghế</span>
+                    <span class="value" id="seatCount">0</span>
+                </div>
+            </div>
+
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Ghế đã chọn:</p>
+            <div class="selected-seats-list" id="selectedSeats">
+                <span style="color: var(--text-muted)">Chưa chọn ghế nào</span>
+            </div>
+
+            <div class="info-row total">
+                <span class="label">Tổng tiền</span>
+                <span class="value" id="totalPrice">0đ</span>
+            </div>
+
+            <button class="btn btn-gold" id="confirmBtn" style="width: 100%; margin-top: 20px;" disabled>
+                Xác nhận đặt vé
+            </button>
+            <a href="movie-detail.html" class="btn btn-outline" style="width: 100%; margin-top: 10px;">
+                ← Quay lại
+            </a>
+        </aside>
+    </div>
+
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="modal-icon">🎬</div>
+            <h2>Đặt vé thành công!</h2>
+            <p id="modalSummary"></p>
+            <div class="ticket-code" id="ticketCode">ABCD1234</div>
+            <p style="font-size: 0.85rem;">Vui lòng đến rạp trước giờ chiếu 15 phút. Xuất trình mã vé tại quầy.</p>
+            <button class="btn btn-primary" id="closeModal">Hoàn tất</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 CineBook — Thiết kế bởi Ngọc Bùi Quang</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/booking.js"></script>
+</body>
+</html>
